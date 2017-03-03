@@ -59,7 +59,6 @@ public class Files {
             dirStream = fs.provider().newDirectoryStream(root, ACCEPT_FILES);
 
         } else {
-
             final PathMatcher matcher = fs.getPathMatcher(glob);
 
             if (isRegularFile(root)) {
@@ -71,7 +70,6 @@ public class Files {
 
             dirStream =
                 fs.provider().newDirectoryStream(root, p -> isRegularFile(p) && matcher.matches(p.getFileName()));
-
         }
 
         dirStream.forEach(action);

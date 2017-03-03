@@ -11,18 +11,18 @@
 
   <name>mirelanita</name>
   <url>http://mirelanita.com</url>
-  <description>Ever ongoing support project... ;)</description>
-
-  <issueManagement>
-    <url>https://github.com/octavian-nita/mirelanita/issues</url>
-    <system>mirelanita Issues on GitHub</system>
-  </issueManagement>
+  <description>Ever ongoing support project for http://mirelanita.com ... ;)</description>
 
   <scm>
     <url>https://github.com/octavian-nita/mirelanita</url>
     <connection>scm:git:git://github.com/octavian-nita/mirelanita.git</connection>
     <developerConnection>scm:git:git@github.com:octavian-nita/mirelanita.git</developerConnection>
   </scm>
+
+  <issueManagement>
+    <url>https://github.com/octavian-nita/mirelanita/issues</url>
+    <system>mirelanita Issues on GitHub</system>
+  </issueManagement>
 
   <developers>
     <developer>
