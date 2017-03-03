@@ -1,0 +1,26 @@
+{
+  "systemProperties": {
+
+    "http.proxyHost": "http_proxy_host",
+    "http.proxyPort": "http_proxy_port",
+    "http.proxyUser": "http_proxy_user",
+    "http.proxyPassword": "http_proxy_pass",
+
+    "http.nonProxyHosts": "localhost|localhost.localdomain|127.0.0.1",
+
+    "https.proxyHost": "#/systemProperties/http.proxyHost",
+    "https.proxyPort": "#/systemProperties/http.proxyPort",
+    "https.proxyUser": "#/systemProperties/http.proxyUser",
+    "https.proxyPassword": "#/systemProperties/http.proxyPassword",
+
+    "socksProxyHost": "#/systemProperties/http.proxyHost",
+    "socksProxyPort": "#/systemProperties/http.proxyPort",
+
+    "java.net.socks.username": "#/systemProperties/http.proxyUser",
+    "java.net.socks.password": "#/systemProperties/http.proxyPassword",
+  },
+  "defaultAuthenticator": {
+    "username": "#/systemProperties/http.proxyUser",
+    "password": "#/systemProperties/http.proxyPassword",
+  }
+}

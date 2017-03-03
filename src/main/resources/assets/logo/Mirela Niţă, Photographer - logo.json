@@ -1,0 +1,12 @@
+{
+  "title": "Mirela Niţă, Photographer",
+  "alt": "Mirela Niţă, Photographer logo",
+  "src": {
+    "default": "#/src/dark",
+    "dark": "Mirela-Niţă-logo-dark.png",
+    "lighter": "Mirela-Niţă-logo-lighter.png",
+    "lighter+": "Mirela-Niţă-logo-lighter+.png",
+    "lighter++": "Mirela-Niţă-logo-lighter++.png",
+    "light": "Mirela-Niţă-logo-light.png"
+  }
+}
