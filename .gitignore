@@ -18,16 +18,16 @@
 **/*.lck*
 **/*.lock*
 
-**/media/**/*.jpeg
-**/media/**/*.jpg
-**/media/**/*.tiff
-**/media/**/*.tif
-**/media/**/*.png
-**/media/**/*.gif
-**/media/**/*.bmp
-**/media/**/*.tga
-**/media/**/*.psd
-**/media/**/*.dng
+#**/media/**/*.jpeg
+#**/media/**/*.jpg
+#**/media/**/*.tiff
+#**/media/**/*.tif
+#**/media/**/*.png
+#**/media/**/*.gif
+#**/media/**/*.bmp
+#**/media/**/*.tga
+#**/media/**/*.psd
+#**/media/**/*.dng
 
 **/*.cache
 **/.DS_Store

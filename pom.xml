@@ -13,16 +13,16 @@
   <url>http://mirelanita.com</url>
   <description>Ever ongoing support project for http://mirelanita.com ... ;)</description>
 
+  <issueManagement>
+    <url>https://github.com/octavian-nita/mirelanita/issues</url>
+    <system>mirelanita Issues on GitHub</system>
+  </issueManagement>
+
   <scm>
     <url>https://github.com/octavian-nita/mirelanita</url>
     <connection>scm:git:git://github.com/octavian-nita/mirelanita.git</connection>
     <developerConnection>scm:git:git@github.com:octavian-nita/mirelanita.git</developerConnection>
   </scm>
-
-  <issueManagement>
-    <url>https://github.com/octavian-nita/mirelanita/issues</url>
-    <system>mirelanita Issues on GitHub</system>
-  </issueManagement>
 
   <developers>
     <developer>
@@ -36,6 +36,20 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+
+  <repositories>
+    <repository>
+      <id>apache.snapshots</id>
+      <name>Apache Development Snapshot Repository</name>
+      <url>https://repository.apache.org/content/repositories/snapshots/</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
 
   <dependencyManagement>
     <dependencies>
@@ -59,6 +73,11 @@
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
       <version>3.5</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.5</version>
     </dependency>
 
     <dependency>
@@ -92,6 +111,11 @@
       <groupId>com.drewnoakes</groupId>
       <artifactId>metadata-extractor</artifactId>
       <version>2.10.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-imaging</artifactId>
+      <version>1.0-SNAPSHOT</version>
     </dependency>
 
     <!-- ============================================================================ -->

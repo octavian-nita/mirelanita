@@ -16,11 +16,6 @@ public class Stopwatch {
 
     public long elapsedSeconds() { return elapsedMillis() / 1000; }
 
-    public Stopwatch reset() {
-        start = stop = 0;
-        return this;
-    }
-
     public Stopwatch start() {
         start = System.currentTimeMillis();
         return this;
@@ -28,6 +23,11 @@ public class Stopwatch {
 
     public Stopwatch stop() {
         stop = System.currentTimeMillis();
+        return this;
+    }
+
+    public Stopwatch reset() {
+        start = stop = 0;
         return this;
     }
 
