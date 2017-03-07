@@ -19,25 +19,25 @@ import static java.util.Objects.requireNonNull;
  * @author Octavian Theodor NITA (https://github.com/octavian-nita/)
  * @version 1.0, Mar 01, 2017
  */
-public class Files {
+public class FileSet {
 
     private final Path root;
 
     private final String glob;
 
-    public Files(String root) { this(root, null); }
+    public FileSet(String root) { this(root, null); }
 
-    public Files(String root, String glob) {
+    public FileSet(String root, String glob) {
         this(Paths.get(requireNonNull(root, "the root path cannot be null")), glob);
     }
 
-    public Files(File root) { this(root, null); }
+    public FileSet(File root) { this(root, null); }
 
-    public Files(File root, String glob) { this(requireNonNull(root, "the root path cannot be null").toPath(), glob); }
+    public FileSet(File root, String glob) { this(requireNonNull(root, "the root path cannot be null").toPath(), glob); }
 
-    public Files(Path root) { this(root, null); }
+    public FileSet(Path root) { this(root, null); }
 
-    public Files(Path root, String glob) {
+    public FileSet(Path root, String glob) {
         this.root = requireNonNull(root, "the root path cannot be null");
 
         if (glob == null || (glob = glob.trim()).length() == 0) {

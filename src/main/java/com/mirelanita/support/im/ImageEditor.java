@@ -2,9 +2,7 @@ package com.mirelanita.support.im;
 
 import com.adobe.xmp.XMPMeta;
 import com.adobe.xmp.XMPMetaFactory;
-import com.adobe.xmp.options.ParseOptions;
-import com.mirelanita.support.io.Files;
-import org.apache.commons.io.FilenameUtils;
+import com.mirelanita.support.io.FileSet;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -13,8 +11,10 @@ import java.nio.file.Paths;
 import static java.lang.System.err;
 import static java.lang.System.exit;
 import static java.lang.System.out;
+import static java.nio.file.Files.exists;
+import static java.nio.file.Files.readAllBytes;
 import static java.util.Arrays.stream;
-
+import static org.apache.commons.io.FilenameUtils.getBaseName;
 
 /**
  * @author Octavian Theodor NITA (https://github.com/octavian-nita/)
@@ -25,19 +25,15 @@ public class ImageEditor {
     public void preparePhotosForWebsite(String root) {
 
         try {
+            new FileSet(root, "*.jpg").forEach(photoPath -> {
 
-            ParseOptions opts = new ParseOptions();
-            opts.setOmitNormalization(true);
-
-            new Files(root, "*.jpg").forEach(photoPath -> {
-
-                final String photoBaseName = FilenameUtils.getBaseName(photoPath.toString());
+                final String baseName = getBaseName(photoPath.toString());
 
                 // XMP
-                final Path xmpPath = Paths.get(root, photoBaseName + ".xmp");
-                if (java.nio.file.Files.exists(xmpPath)) {
+                final Path xmpPath = Paths.get(root, baseName + ".xmp");
+                if (exists(xmpPath)) {
                     try {
-                        XMPMeta xmp = XMPMetaFactory.parseFromBuffer(java.nio.file.Files.readAllBytes(xmpPath), opts);
+                        XMPMeta xmp = XMPMetaFactory.parseFromBuffer(readAllBytes(xmpPath));
 
                         out.printf("%s%n", xmp.dumpObject());
                     } catch (Exception e) {
