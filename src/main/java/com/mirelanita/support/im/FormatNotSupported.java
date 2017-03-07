@@ -4,7 +4,7 @@ import java.io.File;
 import java.nio.file.Path;
 
 /**
- * @author Octavian Theodor NITA (https://github.com/octavian-nita/)
+ * @author Octavian Theodor Nita (https://github.com/octavian-nita/)
  * @version 1.0, Feb 11, 2015
  */
 public class FormatNotSupported extends Exception {

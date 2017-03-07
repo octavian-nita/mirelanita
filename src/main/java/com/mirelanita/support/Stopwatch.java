@@ -1,7 +1,7 @@
 package com.mirelanita.support;
 
 /**
- * @author Octavian Theodor NITA (https://github.com/octavian-nita)
+ * @author Octavian Theodor Nita (https://github.com/octavian-nita)
  * @version 1.0, Jan 27, 2015
  */
 public class Stopwatch {

@@ -17,17 +17,17 @@ import static java.util.Arrays.stream;
 import static org.apache.commons.io.FilenameUtils.getBaseName;
 
 /**
- * @author Octavian Theodor NITA (https://github.com/octavian-nita/)
+ * @author Octavian Theodor Nita (https://github.com/octavian-nita/)
  * @version 1.0, Mar 01, 2017
  */
 public class ImageEditor {
 
-    public void preparePhotosForWebsite(String root) {
+    public void prepareImagesForWebsite(String root) {
 
         try {
-            new FileSet(root, "*.jpg").forEach(photoPath -> {
+            new FileSet(root, "*.jpg").forEach(imagePath -> {
 
-                final String baseName = getBaseName(photoPath.toString());
+                final String baseName = getBaseName(imagePath.toString());
 
                 // XMP
                 final Path xmpPath = Paths.get(root, baseName + ".xmp");
@@ -57,6 +57,6 @@ public class ImageEditor {
         }
 
         final ImageEditor imageEditor = new ImageEditor();
-        stream(args).forEach(imageEditor::preparePhotosForWebsite);
+        stream(args).forEach(imageEditor::prepareImagesForWebsite);
     }
 }

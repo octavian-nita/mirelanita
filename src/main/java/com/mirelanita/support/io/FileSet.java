@@ -16,7 +16,7 @@ import static java.util.Objects.requireNonNull;
  * <li>recursive pattern matching</li>
  * </ul>
  *
- * @author Octavian Theodor NITA (https://github.com/octavian-nita/)
+ * @author Octavian Theodor Nita (https://github.com/octavian-nita/)
  * @version 1.0, Mar 01, 2017
  */
 public class FileSet {
