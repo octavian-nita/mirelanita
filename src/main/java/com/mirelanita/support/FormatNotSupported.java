@@ -1,4 +1,4 @@
-package com.mirelanita.support.im;
+package com.mirelanita.support;
 
 import java.io.File;
 import java.nio.file.Path;

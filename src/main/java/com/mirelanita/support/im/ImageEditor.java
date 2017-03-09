@@ -7,6 +7,7 @@ import com.mirelanita.support.io.FileSet;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 
 import static java.lang.System.err;
 import static java.lang.System.exit;
@@ -50,13 +51,13 @@ public class ImageEditor {
 
     public static void main(String[] args) throws Exception {
 
-        if (args.length == 0) {
-            out.printf("Usage: java [-cp <classpath>] [-jar <jar-file>] %s <images-root>...%n",
-                       ImageEditor.class.getName());
-            exit(1);
-        }
+        //if (args.length == 0) {
+        //    out.printf("Usage: java [-cp <classpath>] [-jar <jar-file>] %s <images-root>...%n",
+        //               ImageEditor.class.getName());
+        //    exit(1);
+        //}
 
-        final ImageEditor imageEditor = new ImageEditor();
-        stream(args).forEach(imageEditor::prepareImagesForWebsite);
+        //final ImageEditor imageEditor = new ImageEditor();
+        //stream(args).forEach(imageEditor::prepareImagesForWebsite);
     }
 }

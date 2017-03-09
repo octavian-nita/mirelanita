@@ -28,17 +28,19 @@ public class FileSet {
     public FileSet(String root) { this(root, null); }
 
     public FileSet(String root, String glob) {
-        this(Paths.get(requireNonNull(root, "the root path cannot be null")), glob);
+        this(Paths.get(requireNonNull(root, "the root path of a file set cannot be null")), glob);
     }
 
     public FileSet(File root) { this(root, null); }
 
-    public FileSet(File root, String glob) { this(requireNonNull(root, "the root path cannot be null").toPath(), glob); }
+    public FileSet(File root, String glob) {
+        this(requireNonNull(root, "the root path of a file set cannot be null").toPath(), glob);
+    }
 
     public FileSet(Path root) { this(root, null); }
 
     public FileSet(Path root, String glob) {
-        this.root = requireNonNull(root, "the root path cannot be null");
+        this.root = requireNonNull(root, "the root path of a file set cannot be null");
 
         if (glob == null || (glob = glob.trim()).length() == 0) {
             glob = "glob:*";
@@ -54,9 +56,9 @@ public class FileSet {
         final FileSystem fs = root.getFileSystem();
 
         DirectoryStream<Path> dirStream;
-        if ("*".equals(glob) || "glob:*".equals(glob)) {
+        if ("*".equals(glob) || "glob:*".equals(glob)) { // no need for a path matcher...
 
-            dirStream = fs.provider().newDirectoryStream(root, ACCEPT_FILES);
+            dirStream = fs.provider().newDirectoryStream(root, FLT_ONLY_FILES);
 
         } else {
             final PathMatcher matcher = fs.getPathMatcher(glob);
@@ -75,6 +77,6 @@ public class FileSet {
         dirStream.forEach(action);
     }
 
-    public static final Filter<Path> ACCEPT_FILES = path -> isRegularFile(path);
+    public static final Filter<Path> FLT_ONLY_FILES = path -> isRegularFile(path);
 
 }

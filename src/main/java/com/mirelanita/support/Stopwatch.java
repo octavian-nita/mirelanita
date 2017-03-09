@@ -12,9 +12,16 @@ public class Stopwatch {
 
     private volatile long stop;  // millis
 
+    public long elapsedSeconds() { return elapsedMillis() / 1000; }
+
     public long elapsedMillis() { return stop - start; }
 
-    public long elapsedSeconds() { return elapsedMillis() / 1000; }
+    public Stopwatch restart() { return reset().start(); }
+
+    public Stopwatch reset() {
+        start = stop = 0;
+        return this;
+    }
 
     public Stopwatch start() {
         start = System.currentTimeMillis();
@@ -25,13 +32,6 @@ public class Stopwatch {
         stop = System.currentTimeMillis();
         return this;
     }
-
-    public Stopwatch reset() {
-        start = stop = 0;
-        return this;
-    }
-
-    public Stopwatch restart() { return reset().start(); }
 
     public String report() { return elapsedMillis() + "ms"; }
 
