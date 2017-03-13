@@ -30,33 +30,22 @@ public class ImagePath implements Path {
 
     private final Dimensions dimensions;
 
-    /**
-     * Eventual trailing word(s) (usually an adjective) used to attribute the 'quality' of this particular image file.
-     * E.g. 'o' meaning, possibly, 'original' or high quality image, 'w' meaning 'optimized for web', etc.
-     */
-    private final String qualifier;
-
     public ImagePath(Path path) {
         this.path = Objects.requireNonNull(path, "the path to an image file cannot be null");
         this.baseName = FilenameUtils.getBaseName(path.toString());
 
         // Try to obtain more (assumed) info about the image, by parsing the base name:
-        final Matcher matcher = COMMON_PATTERN.matcher(this.baseName);
+        final Matcher matcher = WITH_DIMS_PATTERN.matcher(this.baseName);
 
         Dimensions dimensions = null;
-        String qualifier = null;
         if (matcher.matches()) {
             int gc = matcher.groupCount();
             if (gc >= 2) {
                 dimensions = new Dimensions(parseInt(matcher.group(1)), parseInt(matcher.group(2)));
             }
-            if (gc >= 3) {
-                qualifier = matcher.group(3);
-            }
         }
 
         this.dimensions = dimensions;
-        this.qualifier = qualifier;
     }
 
     public Path getPath() { return path; }
@@ -67,13 +56,9 @@ public class ImagePath implements Path {
 
     public Dimensions getDimensions() { return dimensions; }
 
-    public boolean hasQualifier() { return qualifier != null; }
-
-    public String getQualifier() { return qualifier; }
-
     public boolean exists() { return Files.exists(path); }
 
-    private static final Pattern COMMON_PATTERN = compile(".*[-_]\\s*([0-9]+)\\s*[xX]\\s*([0-9]+)\\s*(?:[-_](.*))?$");
+    private static final Pattern WITH_DIMS_PATTERN = compile(".*[-_]\\s*([0-9]+)\\s*[xX]\\s*([0-9]+)\\s*$");
 
     @Override
     public FileSystem getFileSystem() { return path.getFileSystem(); }
@@ -192,9 +177,10 @@ public class ImagePath implements Path {
     public Iterator<Path> iterator() { return path.iterator(); }
 
     @Override
-    public boolean equals(Object o) {
-        return this == o || o != null && o instanceof ImagePath && path.equals(((ImagePath) o).path);
-    }
+    public int compareTo(Path other) { return this.path.compareTo(other); }
+
+    @Override
+    public boolean equals(Object o) { return path.equals(o); }
 
     @Override
     public int hashCode() { return path.hashCode(); }
